@@ -1,0 +1,10 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+PROJECT ( tp_avions )
+
+FIND_PACKAGE( OpenSceneGraph REQUIRED osgDB osgViewer osgGA)
+
+ADD_EXECUTABLE( tp_avions Avion.cpp AvionAmi.cpp AvionEnnemi.cpp GeneralCallback.cpp main.cpp )
+
+INCLUDE_DIRECTORIES(${OPENSCENEGRAPH_INCLUDE_DIRS})
+TARGET_LINK_LIBRARIES(tp_avions ${OPENSCENEGRAPH_LIBRARIES} )
