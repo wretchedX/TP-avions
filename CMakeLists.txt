@@ -4,7 +4,15 @@ PROJECT ( tp_avions )
 
 FIND_PACKAGE( OpenSceneGraph REQUIRED osgDB osgViewer osgGA)
 
-ADD_EXECUTABLE( tp_avions Avion.cpp AvionAmi.cpp AvionEnnemi.cpp GeneralCallback.cpp main.cpp )
+set(EXECUTABLE_OUTPUT_PATH bin)
 
-INCLUDE_DIRECTORIES(${OPENSCENEGRAPH_INCLUDE_DIRS})
+file(
+        GLOB_RECURSE
+        source_files
+        src/*
+)
+
+add_executable( tp_avions ${source_files})
+
+INCLUDE_DIRECTORIES(${OPENSCENEGRAPH_INCLUDE_DIRS} include)
 TARGET_LINK_LIBRARIES(tp_avions ${OPENSCENEGRAPH_LIBRARIES} )
