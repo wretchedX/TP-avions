@@ -1,7 +1,10 @@
 #ifndef AVION_H
 #define AVION_H
 
+#ifndef __APPLE__
 #include <windows.h>
+#endif
+
 #include <vector>
 
 #include <osgViewer/Viewer>
