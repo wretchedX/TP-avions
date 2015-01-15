@@ -5,6 +5,9 @@ AvionAmi::AvionAmi(int id, int x, int y, int z, int dx, int dy, int dz): Avion(i
 {
     this->pretATirer = true;
     this->detruit = false;
+	dx = 1;
+	dy = 0;
+	dz = 0;
 }
 
 
@@ -140,18 +143,20 @@ void AvionAmi::tir() //tir pour l'avion ami
 
 void AvionAmi::deplacement()
 {
-    //direction
-    x=x+dx;
-    y=y+dy;
-    z=z+dz;
-    if (x==TAILLE || y==TAILLE || z==TAILLE || x<0 || y<0 || z<0)
-    {
-        detruit = true;
-		cout << "Avion" << id << " sorti du jeu (" << x << " " << y << " " << z << ")" << endl;
-    }
+    x+=dx;
+	if(x<0) x=TAILLE-1;
+    if(x==TAILLE) x=0;
+    
+    y+=dy;
+    if(y<0) y=TAILLE-1;
+    if(y==TAILLE) y=0;
+    
+    z+=dz;
+    if(z<0) z=TAILLE-1;
+    if(z==TAILLE) z=0;
 }
 
-
+/*
 void AvionAmi::nouvelleDirection()
 {
     int Vx = 0, Vy = 0, Vz = 0; //décalage entre l'avion et sa cible sur X, Y et Z
@@ -276,5 +281,17 @@ void AvionAmi::nouvelleDirection()
             }
             break;
         }
-    }
-    }
+    }*/
+void AvionAmi::nouvelleDirection()
+{
+	if (x < 5 || x > 10){ dx = 0 ; dy = (y<7)?1:-1; dz = 0;}
+	if (y < 5 || y > 10){ dy = 0 ; dz = (z<7)?1:-1; dx = 0;}
+	if (z < 5 || z > 10){ dz = 0 ; dx = (x<7)?1:-1; dy = 0;}
+
+	if ( x == 7 ) dy = (y<7)?1:-1;
+	if ( y == 7 ) dz = (z<7)?1:-1;
+	if ( z == 7 ) dx = (x<7)?1:-1;
+}
+	
+
+
