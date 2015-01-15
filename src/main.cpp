@@ -28,8 +28,8 @@ int main()
 /* SPACESHIPS	*/
 
 	//Loading the SPACESHIPS nodes
-	osg::ref_ptr<osg::Node> xWing (osgDB::readNodeFile("C:\\Users\\eleve\\Documents\\Visual Studio 2012\\Projects\\TPosgAvions\\TPosgAvions\\model\\StarWars\\star wars x-wing.3ds"));
-	osg::ref_ptr<osg::Node> tFighter (osgDB::readNodeFile("C:\\Users\\eleve\\Documents\\Visual Studio 2012\\Projects\\TPosgAvions\\TPosgAvions\\model\\mechant\\TF_3DS02.3ds"));
+	osg::ref_ptr<osg::Node> xWing (osgDB::readNodeFile("Z:\\Documents\\Visual Studio 2012\\Projects\\Medev\\Debug\\model\\StarWars\\star wars x-wing.3ds"));
+	osg::ref_ptr<osg::Node> tFighter (osgDB::readNodeFile("Z:\\Documents\\Visual Studio 2012\\Projects\\Medev\\Debug\\model\\mechant\\TF_3DS02.3ds"));
 
 /* Scale Matrix	*/
 
@@ -113,7 +113,7 @@ int main()
 
 	//The viewer.run() method starts the threads and the traversals.
 	viewer.getCamera()->setClearColor(osg::Vec4(0.0f,0.0f,0.2f,0.0f));
-
+	//viewer.getCamera()->
 	cout << "*** Begin ***" << endl;
 	return (viewer.run());
 }

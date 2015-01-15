@@ -43,6 +43,7 @@ void AvionEnnemi::tir()
                         /* Dans ce cas, on tire et on change l'etat de la cible */
                         this->pretATirer=false;  
                         Avion::avions[i]->setDetruit(true);
+						cout << "bang" << endl;
                     }
                 }
             }
