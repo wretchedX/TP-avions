@@ -37,13 +37,13 @@ void AvionEnnemi::tir()
             {
                 if (Avion::avions[i]->getSymbole()=='A')         // On prend les avions amis comme cible
                 {
-                    AvionAmi* a= dynamic_cast<AvionAmi*>( Avion::avions[i] );
+                    Avion* a=  Avion::avions[i] ;
                     if(a->getX()==j*dx+x && a->getY()==j*dy+y && a->getX()==j*dz+z)         // On regarde si l'avion ami est sur cette case
                     {
                         /* Dans ce cas, on tire et on change l'etat de la cible */
                         this->pretATirer=false;  
-                        Avion::avions[i]->setDetruit(true);
-						cout << "bang" << endl;
+                        a->setDetruit(true);
+						cout << "Piou!" << endl;
                     }
                 }
             }

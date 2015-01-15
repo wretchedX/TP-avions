@@ -11,7 +11,35 @@ AvionAmi::AvionAmi(int id, int x, int y, int z, int dx, int dy, int dz): Avion(i
 }
 
 
+void AvionAmi::tir()
+{
+    if (pretATirer)                                 // Si l'avion est pret a tirer
+    {
+        for (int j=0; j<TAILLE; j++)                // On fait des tests sur toutes les cases dans la direction de notre avion
+        {
+            for (int i=0; i<avions.size(); i++)     // On parcourt la liste d'avions
+            {
+                if (Avion::avions[i]->getSymbole()=='E')         // On prend les avions amis comme cible
+                {
+                    Avion* a=  Avion::avions[i] ;
+                    if(a->getX()==j*dx+x && a->getY()==j*dy+y && a->getX()==j*dz+z)         // On regarde si l'avion ami est sur cette case
+                    {
+                        /* Dans ce cas, on tire et on change l'etat de la cible */
+                        this->pretATirer=false;  
+                        a->setDetruit(true);
+						cout << "Piou!" << endl;
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        pretATirer=true;                // Si l'avion n'est pas pret a tirer, on change son etat pour le prochain tour
+    }
+}
 
+/*
 void AvionAmi::tir() //tir pour l'avion ami   
 {   
 	typedef struct vec
@@ -140,7 +168,7 @@ void AvionAmi::tir() //tir pour l'avion ami
 		}
 	}
 }
-
+*/
 void AvionAmi::deplacement()
 {
     x+=dx;
@@ -284,9 +312,9 @@ void AvionAmi::nouvelleDirection()
     }*/
 void AvionAmi::nouvelleDirection()
 {
-	if (x < 5 || x > 10){ dx = 0 ; dy = (y<7)?1:-1; dz = 0;}
-	if (y < 5 || y > 10){ dy = 0 ; dz = (z<7)?1:-1; dx = 0;}
-	if (z < 5 || z > 10){ dz = 0 ; dx = (x<7)?1:-1; dy = 0;}
+	if (x < 3 || x > 11){ dx = 0 ; dy = (y<7)?1:-1; dz = 0;}
+	if (y < 3 || y > 11){ dy = 0 ; dz = (z<7)?1:-1; dx = 0;}
+	if (z < 3 || z > 11){ dz = 0 ; dx = (x<7)?1:-1; dy = 0;}
 
 	if ( x == 7 ) dy = (y<7)?1:-1;
 	if ( y == 7 ) dz = (z<7)?1:-1;

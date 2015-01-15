@@ -9,10 +9,10 @@ int main()
 
 {
     // Initialisation avions (pas besoin des symboles, le symmbole est inclus dans le constructeur AvionAmi et Avion Ennemi)
-    Avion* avion1 = new AvionAmi(0,0,5,0,1,0,1);  
-    Avion* avion2 = new AvionAmi(1,0,8,0,1,0,1);
-    Avion* avion3 = new AvionEnnemi(2,13,5,13,-1,0,-1);
-    Avion* avion4 = new AvionEnnemi(3,13,8,13,-1,0,-1);
+    Avion* avion1 = new AvionAmi(0,1,5,2,0,0,1);  
+    Avion* avion2 = new AvionAmi(1,0,8,4,1,0,0);
+    Avion* avion3 = new AvionEnnemi(2,13,6,12,-1,0,0);
+    Avion* avion4 = new AvionEnnemi(3,13,8,8,-1,0,0);
 
 
     // Initialisation OSG <3  <3
